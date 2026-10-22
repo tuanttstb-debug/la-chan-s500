@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lá chắn S-500</title>
+<meta name="description" content="Quản trị vận hành chiến dịch Lá chắn S-500 — rà soát nhóm KHDN nghĩa vụ từ 500 tỷ: nhập liệu, dán nhãn Xanh/Vàng/Đỏ, action plan, A4 cho Ban lãnh đạo. Đăng nhập bằng tài khoản SHTD.">
+<!-- Kết nối ra ngoài DUY NHẤT: GAS S-500 (dữ liệu, có token). Tệp Excel nguồn đọc tại máy; chỉ các trường cần dùng được gửi lên. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: blob:; connect-src 'self' https://script.google.com https://script.googleusercontent.com; frame-src 'none'; object-src 'none'; base-uri 'self'">
+<meta name="referrer" content="no-referrer">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%234B1FAF'/%3E%3Cpath d='M16 5l9 3.5v6.5c0 6-4 10-9 12-5-2-9-6-9-12V8.5z' fill='%23FF7A00'/%3E%3Cpath d='M16 9l5 2v4c0 3.6-2.3 6-5 7.3-2.7-1.3-5-3.7-5-7.3v-4z' fill='%23fff'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/app.css">
+<link rel="stylesheet" href="assets/css/s500.css">
+</head>
+<body>
+<div id="bootSplash" class="login-overlay"><div class="login-card"><div class="login-brand"><div class="brand-logo">S-500</div><div><div class="login-title">Lá chắn S-500</div><div class="login-sub">Đang tải ứng dụng…</div></div></div></div></div>
+<div id="loginOverlay" class="login-overlay" style="display:none">
+  <form class="login-card" id="loginForm" autocomplete="on">
+    <div class="login-brand"><div class="brand-logo">S-500</div><div><div class="login-title">Lá chắn S-500</div><div class="login-sub">Phát hiện sớm · hành động sớm · bảo vệ danh mục KH lớn<br>TT SP &amp; GP Tín dụng — Khối NHDN</div></div></div>
+    <label>Tên đăng nhập SHTD<input id="lgUser" autocomplete="username" required></label>
+    <label>Mật khẩu<input id="lgPass" type="password" autocomplete="current-password" required></label>
+    <div id="lgErr" class="alert err" style="display:none"></div>
+    <button class="btn pri block" id="lgBtn" type="submit">Đăng nhập</button>
+    <p class="muted small">Dùng chung tài khoản với SHTD Dashboard (báo cáo công việc tuần). Đang đăng nhập SHTD trên trình duyệt này thì vào thẳng.</p>
+    <p class="muted small">⚠ Hệ thống chứa thông tin khách hàng và nhãn rủi ro — chỉ dùng cho công việc, không chụp/chia sẻ ra ngoài.</p>
+  </form>
+</div>
+
+<div class="app" id="app" style="display:none">
+  <aside class="sidebar" id="sidebar">
+    <div class="brand"><div class="brand-logo">S-500</div><div class="brand-label">Lá chắn S-500<div class="brand-sub">Rà soát KHDN nghĩa vụ ≥ 500 tỷ</div></div></div>
+    <nav class="nav-menu" id="nav"></nav>
+    <div class="sidebar-footer"><span id="dbStatus" class="sidebar-footer-text">–</span></div>
+  </aside>
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+  <main class="main">
+    <header class="topbar">
+      <button class="icon-btn" id="hamburger" title="Menu" aria-label="Menu">☰</button>
+      <div class="topbar-title-group"><h1 class="page-title" id="pageTitle">Tổng quan</h1><div class="breadcrumb" id="pageSub"></div></div>
+      <div class="sp"></div>
+      <button class="icon-btn" id="btnReload" title="Tải lại dữ liệu" aria-label="Tải lại">⟳</button>
+      <button class="icon-btn" id="btnTheme" title="Đổi giao diện sáng/tối" aria-label="Giao diện">◐</button>
+      <div class="user-pill" id="userPill"></div>
+    </header>
+    <section class="content" id="view"></section>
+    <footer class="statusbar"><span id="verBadge"></span><span class="sp"></span><span class="muted">Dữ liệu chỉ nằm trong trang này — đóng tab là xóa khỏi máy. Nhãn chiến dịch là cảnh báo nội bộ, không thay phân loại nợ chính thức.</span></footer>
+  </main>
+</div>
+<div id="toasts" class="toasts"></div>
+<div id="modal" class="modal"></div>
+<div id="busy" class="busy"><div class="busy-card"><div class="spinner"></div><div id="busyMsg">Đang xử lý…</div></div></div>
+
+<script src="vendor/xlsx.full.min.js"></script>
+<script src="core/schema.js"></script>
+<script src="core/rules.js"></script>
+<script src="assets/js/config.js"></script>
+<script src="assets/js/ui.js"></script>
+<script src="assets/js/net.js"></script>
+<script src="assets/js/people-filter.js"></script>
+<script src="assets/js/store.js"></script>
+<script src="assets/js/kit.js"></script>
+<script src="assets/js/xlsx_io.js"></script>
+<script src="assets/js/views/tongquan.js"></script>
+<script src="assets/js/views/nhom.js"></script>
+<script src="assets/js/views/chitiet.js"></script>
+<script src="assets/js/views/pnform.js"></script>
+<script src="assets/js/views/forms.js"></script>
+<script src="assets/js/views/action.js"></script>
+<script src="assets/js/views/cuatoi.js"></script>
+<script src="assets/js/views/a4.js"></script>
+<script src="assets/js/views/nap.js"></script>
+<script src="assets/js/views/quytac.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>
