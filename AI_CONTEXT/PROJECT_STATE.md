@@ -1,6 +1,6 @@
 # PROJECT STATE — Lá chắn S-500 (snapshot)
 
-**Cập nhật:** 2026-10-22 — v0.1.0 · GAS @1 LIVE (health ok, chặn token sai) · `S500_DB` đã tạo (setupAll 22/10, riêng tư) · GitHub `tuanttstb-debug/la-chan-s500` · **Pages LIVE** https://tuanttstb-debug.github.io/la-chan-s500/ (kiểm 22/10: tài nguyên 0 lỗi · 0 lỗi JS · 0 CSP · FE→GAS thật đọc được User_Master SHTD) — chờ anh đăng nhập thật.
+**Cập nhật:** 2026-10-22 — v0.1.0 · GAS @1 LIVE (health ok, chặn token sai) · `S500_DB` đã tạo (setupAll 22/10, riêng tư) · GitHub `tuanttstb-debug/la-chan-s500` · **Pages LIVE** https://tuanttstb-debug.github.io/la-chan-s500/ (kiểm 22/10: tài nguyên 0 lỗi · 0 lỗi JS · 0 CSP · FE→GAS thật đọc được User_Master SHTD) · **test trong Chrome anh ĐẠT** (SSO SHTD, PM, 38 user, 10 màn không lỗi). DB trống — chờ nạp danh mục.
 
 | Hạng mục | Trạng thái |
 |---|---|
