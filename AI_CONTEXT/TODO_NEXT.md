@@ -1,6 +1,6 @@
 # TODO NEXT — Lá chắn S-500
 
-- [ ] [TT] Bật GitHub Pages: repo Settings → Pages → Deploy from branch `main` / `(root)` → [CC] test LIVE đăng nhập + SSO SHTD.
+- [ ] [TT] Đăng nhập thật bằng TK SHTD (xác nhận AUTH_SECRET khớp + SSO) → [CC] nạp danh mục thật cùng chị Nhung.
 - [x] GAS: AUTH_SECRET + setupAll xong 22/10 (S500_DB riêng tư).
 - [ ] [TT] Xin chị Dung file điều hành đang điền (đợt 1) + file mô hình thấu chi/binning 31/08 → [CC]/PM nạp thật.
 - [ ] [CC] 29/10 UAT chị Nhung + 2–3 đầu mối → sửa → 30/10 MVP cho họp đánh giá đợt 1.
