@@ -1,6 +1,7 @@
 # PROJECT STATE — Lá chắn S-500 (snapshot)
 
-**Cập nhật:** 2026-10-22 — v0.1.0 · GAS @1 LIVE (health ok, chặn token sai) · `S500_DB` đã tạo (setupAll 22/10, riêng tư) · GitHub `tuanttstb-debug/la-chan-s500` · **Pages LIVE** https://tuanttstb-debug.github.io/la-chan-s500/ (kiểm 22/10: tài nguyên 0 lỗi · 0 lỗi JS · 0 CSP · FE→GAS thật đọc được User_Master SHTD) · **test trong Chrome anh ĐẠT** (SSO SHTD, PM, 38 user, 10 màn không lỗi). DB trống — chờ nạp danh mục.
+**Cập nhật:** 2026-10-28 — DB LIVE vẫn trống (đợt 1 chờ chị Dung nạp 29/10) · ⏸ **UI v2:** đã rà soát + kế hoạch (AIOS `08_Work/W-2610-s500-la-chan/ui-v2/`), MASTER P1 `design-system/la-chan-s-500/` — anh hoãn tới sau khi team test (D12), code FE chưa đổi.
+2026-10-22 — v0.1.0 · GAS @1 LIVE (health ok, chặn token sai) · `S500_DB` đã tạo (setupAll 22/10, riêng tư) · GitHub `tuanttstb-debug/la-chan-s500` · **Pages LIVE** https://tuanttstb-debug.github.io/la-chan-s500/ (kiểm 22/10: tài nguyên 0 lỗi · 0 lỗi JS · 0 CSP · FE→GAS thật đọc được User_Master SHTD) · **test trong Chrome anh ĐẠT** (SSO SHTD, PM, 38 user, 10 màn không lỗi). DB trống — chờ nạp danh mục.
 
 | Hạng mục | Trạng thái |
 |---|---|
@@ -11,3 +12,4 @@
 | Deploy GAS (`clasp`) + Script Property AUTH_SECRET + `setupAll` | ✅ 22/10 |
 | Repo GitHub + Pages | ✅ repo + Pages LIVE 22/10 |
 | UAT chị Nhung (dữ liệu thật đợt 1) | ⏳ 29/10 |
+| Nâng cấp UI v2 (vá AA + đổi gu theo MASTER) | ⏸ chờ anh duyệt sau test (TD-S500-05) |
